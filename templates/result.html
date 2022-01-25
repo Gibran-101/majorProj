@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Result{% endblock title %}
+{% block body %}
+<style>
+    body {
+        color:black;
+        font-family: sans-serif;
+        background-color: #ced4da;
+        font-weight: bold;
+    }
+
+    h1{
+        color: rgb(41, 13, 94);
+    }
+    .blockquote-footer{
+        color:#679fd0;
+    }
+</style>
+
+<h1 class="text-center text-decoration-underline color:green">Password Vault</h1>
+
+{% for data in result_list %}
+<div class="card">
+    <div class="card-header">
+        {{ data.first }} {{data.last}}, {{data.age}}
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>{{ data.app }}<br/>{{data.password}}</p>
+        <footer class="blockquote-footer">{{ data.location }}<cite title="Source Title">, {{ data.date }}</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+
+  <br/><br/>
+{% endfor %}
+
+
+{% endblock body %}
